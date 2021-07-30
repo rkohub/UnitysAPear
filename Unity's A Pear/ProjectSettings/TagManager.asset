@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Stage
+  - Key
+  - Door
+  - Man
   layers:
   - Default
   - TransparentFX
