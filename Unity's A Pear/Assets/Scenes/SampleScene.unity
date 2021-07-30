@@ -656,7 +656,7 @@ MonoBehaviour:
   readyToChange: 0
   readyToAttachFromLegs: 0
   distToAttach: 3
-  attJumpMagnitude: 1000
-  attAccelerationMagnitude: 10
-  attMaxVelocity: 10
-  attMaxJumps: 10
+  attJumpMagnitude: 300
+  attAccelerationMagnitude: 2
+  attMaxVelocity: 5
+  attMaxJumps: 2
