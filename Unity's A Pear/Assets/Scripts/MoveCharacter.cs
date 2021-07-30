@@ -16,7 +16,7 @@ public class MoveCharacter : MonoBehaviour{
     public bool coll;
     public int baseMaxJumps;
     public int maxJumps;
-    private int jumpsUsed;
+    public int jumpsUsed;
     public float baseMaxVelocity;
     public float maxVelocity;
     private Vector2 force;
