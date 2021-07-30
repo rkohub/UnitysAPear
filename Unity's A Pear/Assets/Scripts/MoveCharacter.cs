@@ -8,11 +8,13 @@ public class MoveCharacter : MonoBehaviour{
     //Todo
     //Fix Error where reset jumps on hit bottom of platforms
 
+    public float baseJumpMagnitude;
     public float jumpMagnitude;
     private Rigidbody2D body;
     public float baseAccel;
     public float accelerationMagnitude;
     public bool coll;
+    public int baseMaxJumps;
     public int maxJumps;
     private int jumpsUsed;
     public float baseMaxVelocity;

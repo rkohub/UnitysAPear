@@ -193,10 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce2bc10174ba4147be7264108d8f744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseJumpMagnitude: 250
   jumpMagnitude: 250
   baseAccel: 2
   accelerationMagnitude: 0
   coll: 0
+  baseMaxJumps: 1
   maxJumps: 1
   baseMaxVelocity: 3
   maxVelocity: 0
@@ -623,10 +625,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce2bc10174ba4147be7264108d8f744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseJumpMagnitude: 300
   jumpMagnitude: 300
   baseAccel: 2
   accelerationMagnitude: 0
   coll: 0
+  baseMaxJumps: 2
   maxJumps: 2
   baseMaxVelocity: 5
   maxVelocity: 0
@@ -652,3 +656,7 @@ MonoBehaviour:
   readyToChange: 0
   readyToAttachFromLegs: 0
   distToAttach: 3
+  attJumpMagnitude: 1000
+  attAccelerationMagnitude: 10
+  attMaxVelocity: 10
+  attMaxJumps: 10
