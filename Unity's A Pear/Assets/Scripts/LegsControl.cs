@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class LegsControl : MonoBehaviour{
 
-    public HeadControl headScript;
     public GameObject head;
+    public HeadControl headScript;
     public MoveCharacter myMovement;
     public bool attached;
     public bool controllingLegs;
     public bool selfEnabled;
     public bool readyToChange;
     public bool readyToAttachFromLegs;
+    public float distToAttach;
+
+    public float attJumpMagnitude;
+    public float attAccelerationMagnitude;
+    public float attMaxVelocity;
+    public int attMaxJumps;
     // Start is called before the first frame update
 
     void Start(){
@@ -23,6 +29,19 @@ public class LegsControl : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        if(attached){
+            // Debug.Log("ATT");
+            myMovement.jumpMagnitude         = attJumpMagnitude;
+            myMovement.accelerationMagnitude = attAccelerationMagnitude;
+            myMovement.maxVelocity           = attMaxVelocity;
+            myMovement.maxJumps              = attMaxJumps;
+        }else{
+            // Debug.Log("SEP");
+            myMovement.jumpMagnitude         = myMovement.baseJumpMagnitude;
+            myMovement.accelerationMagnitude = myMovement.baseAccel;
+            myMovement.maxVelocity           = myMovement.baseMaxVelocity;
+            myMovement.maxJumps              = myMovement.baseMaxJumps;
+        }
         myMovement.enabled = selfEnabled || attached;
         if(selfEnabled || attached){
             // Debug.Log("L ENAB");
@@ -33,7 +52,11 @@ public class LegsControl : MonoBehaviour{
                 updateAttach();
             }
             if (Input.GetKeyDown("j")){
-                readyToAttachFromLegs = true;
+                if(Vector2.Distance(this.gameObject.transform.position,head.transform.position) < distToAttach){
+                    readyToAttachFromLegs = true;
+                }else{
+                    Debug.Log("NotINRange");
+                }
             }
             if (Input.GetKeyDown("k")){
                 readyToChange = true;
@@ -44,8 +67,9 @@ public class LegsControl : MonoBehaviour{
     public void updateAttach(){
         attached = !attached;
         headScript.attached = attached; 
-        Debug.Log("@@@");
+        // Debug.Log("@@@");
         readyToAttachFromLegs = false;
+        headScript.readyToAttachFromHead = false;
     }
 
     public void updateControl(){
