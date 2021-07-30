@@ -16,7 +16,7 @@ public class MoveCharacter : MonoBehaviour{
     public bool coll;
     public int baseMaxJumps;
     public int maxJumps;
-    private int jumpsUsed;
+    public int jumpsUsed;
     public float baseMaxVelocity;
     public float maxVelocity;
     private Vector2 force;
@@ -27,6 +27,7 @@ public class MoveCharacter : MonoBehaviour{
     void Start(){
         body = this.gameObject.GetComponent<Rigidbody2D>();
         // airScalar = 0.75f;
+        jumpsUsed = maxJumps;
     }
 
     // Update is called once per frame
@@ -63,9 +64,10 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+        Debug.Log("COLL");
         collision.collider.GetContacts(contacts);
         bool isGround = contacts[0].normal.x == 0 && contacts[0].point.y > collision.gameObject.transform.position.y;
-        // Debug.Log(isGround);
+        Debug.Log(isGround);
 
         if(collision.gameObject.tag == "Stage" && isGround){
             coll = true;
