@@ -20,6 +20,8 @@ public class MoveCharacter : MonoBehaviour{
     private Vector2 force;
     public float airScalar;
 
+    private ContactPoint2D[] contacts = new ContactPoint2D[10];
+
     void Start(){
         body = this.gameObject.GetComponent<Rigidbody2D>();
         // airScalar = 0.75f;
@@ -59,11 +61,14 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "Stage"){
+        collision.collider.GetContacts(contacts);
+        bool isGround = contacts[0].normal.x == 0 && contacts[0].point.y > collision.gameObject.transform.position.y;
+        // Debug.Log(isGround);
+
+        if(collision.gameObject.tag == "Stage" && isGround){
             coll = true;
             jumpsUsed = 0;
         }
-        
     }
 
     void OnCollisionExit2D(Collision2D collision){

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class LegsControl : MonoBehaviour{
 
-    public HeadControl headScript;
     public GameObject head;
+    public HeadControl headScript;
     public MoveCharacter myMovement;
     public bool attached;
     public bool controllingLegs;
     public bool selfEnabled;
     public bool readyToChange;
     public bool readyToAttachFromLegs;
+    public float distToAttach;
     // Start is called before the first frame update
 
     void Start(){
@@ -33,7 +34,11 @@ public class LegsControl : MonoBehaviour{
                 updateAttach();
             }
             if (Input.GetKeyDown("j")){
-                readyToAttachFromLegs = true;
+                if(Vector2.Distance(this.gameObject.transform.position,head.transform.position) < distToAttach){
+                    readyToAttachFromLegs = true;
+                }else{
+                    Debug.Log("NotINRange");
+                }
             }
             if (Input.GetKeyDown("k")){
                 readyToChange = true;
@@ -44,8 +49,9 @@ public class LegsControl : MonoBehaviour{
     public void updateAttach(){
         attached = !attached;
         headScript.attached = attached; 
-        Debug.Log("@@@");
+        // Debug.Log("@@@");
         readyToAttachFromLegs = false;
+        headScript.readyToAttachFromHead = false;
     }
 
     public void updateControl(){

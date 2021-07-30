@@ -6,8 +6,8 @@ public class HeadControl : MonoBehaviour{
 
     //error when head  tries to reattach. changes values in legs. Then works after 2.
 
+    public GameObject legs;
     public LegsControl legScript;
-    public GameObject head;
     public MoveCharacter myMovement;
     public bool attached;
     public bool controllingLegs;
@@ -15,6 +15,8 @@ public class HeadControl : MonoBehaviour{
     public bool readyToChange;
     public bool readyToAttachFromHead;
     private Rigidbody2D body;
+    public Collider2D coll;
+    public float distToAttach;
     // Start is called before the first frame update
 
     void Start(){
@@ -28,6 +30,7 @@ public class HeadControl : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         myMovement.enabled = !attached && selfEnabled;
+        coll.enabled = !attached;
         if(attached){
             body.velocity = new Vector2 (0,0);
             this.gameObject.transform.localPosition = new Vector2(0,1.5f);
@@ -41,8 +44,12 @@ public class HeadControl : MonoBehaviour{
                 updateAttach();
             }
             if (Input.GetKeyDown("j")){
-                readyToAttachFromHead = true;
-                Debug.Log("LINK");
+                if(Vector2.Distance(this.gameObject.transform.position,legs.transform.position) < distToAttach){
+                    readyToAttachFromHead = true;
+                }else{
+                    Debug.Log("NotINRange");
+                }
+                // Debug.Log("LINK");
             }
             if (Input.GetKeyDown("k")){
                 readyToChange = true;
@@ -53,10 +60,11 @@ public class HeadControl : MonoBehaviour{
     public void updateAttach(){
         attached = !attached;
         legScript.attached = attached; 
-        Debug.Log("H ATT");
-        Debug.Log(attached);
+        // Debug.Log("H ATT");
+        // Debug.Log(attached);
         // selfEnabled = false;
         readyToAttachFromHead = false;
+        legScript.readyToAttachFromLegs = false;
     }
 
     public void updateControl(){

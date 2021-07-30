@@ -171,13 +171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adcd892e579ae24a8672643e8539537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  legs: {fileID: 1411625274}
   legScript: {fileID: 1411625280}
-  head: {fileID: 1411625274}
   myMovement: {fileID: 460073420}
   attached: 0
   controllingLegs: 0
   selfEnabled: 0
   readyToChange: 0
+  readyToAttachFromHead: 0
+  coll: {fileID: 460073421}
+  distToAttach: 3
 --- !u!114 &460073420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,10 +643,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425bcaacc9ef2414baa90e6f3f567100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headScript: {fileID: 460073419}
   head: {fileID: 460073417}
+  headScript: {fileID: 460073419}
   myMovement: {fileID: 1411625279}
   attached: 0
   controllingLegs: 0
   selfEnabled: 1
   readyToChange: 0
+  readyToAttachFromLegs: 0
+  distToAttach: 3
