@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorMechanics : MonoBehaviour
 {
     public bool isLocked;
-
+    public Animator keyUsed;
     public KeyMechanics keyScript;
     // public GameObject key;
 
@@ -27,6 +27,7 @@ public class DoorMechanics : MonoBehaviour
         {
             GetComponent<BoxCollider2D> ().enabled = false;
             isLocked = false;
+            keyUsed.SetTrigger("KeyUsed");
             Debug.Log("unlocked");
         }
     }
