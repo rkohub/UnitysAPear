@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Door
   - Man
+  - Button
   layers:
   - Default
   - TransparentFX
