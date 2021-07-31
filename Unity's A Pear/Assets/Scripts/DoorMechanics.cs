@@ -5,11 +5,11 @@ using UnityEngine;
 public class DoorMechanics : MonoBehaviour
 {
     public bool isLocked;
-    public Animator keyUsed;
+    public Animator doorUnlocked;
     public KeyMechanics keyScript;
+    public ButtonMechanics buttonScript;
     // public GameObject key;
 
-    // Start is called before the first frame update
     void Start()
     {
         // keyScript = key.GetComponent<key>();
@@ -23,12 +23,15 @@ public class DoorMechanics : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Man" && keyScript.hasKey)
+        if(collision.gameObject.tag == "Man")
         {
-            GetComponent<BoxCollider2D> ().enabled = false;
-            isLocked = false;
-            keyUsed.SetTrigger("KeyUsed");
-            Debug.Log("unlocked");
+            if(keyScript.hasKey || buttonScript.isPressed)
+            {
+                GetComponent<BoxCollider2D> ().enabled = false;
+                isLocked = false;
+                doorUnlocked.SetTrigger("DoorUnlocked");
+                Debug.Log("unlocked");
+            }
         }
     }
 }
