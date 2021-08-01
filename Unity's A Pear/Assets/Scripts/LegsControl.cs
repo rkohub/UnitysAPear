@@ -7,6 +7,8 @@ public class LegsControl : MonoBehaviour{
     public GameObject head;
     public HeadControl headScript;
     public MoveCharacter myMovement;
+    public Collider2D legBox;
+    public Collider2D attachedBox;
     public bool attached;
     public bool controllingLegs;
     public bool selfEnabled;
@@ -29,6 +31,8 @@ public class LegsControl : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        legBox.enabled = !attached;
+        attachedBox.enabled = attached;
         if(attached){
             // Debug.Log("ATT");
             myMovement.jumpMagnitude         = attJumpMagnitude;
