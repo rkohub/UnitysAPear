@@ -2901,6 +2901,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7719490212834915835, guid: 104852b876b273e4a8278c2289977e07,
         type: 3}
+      propertyPath: legScript
+      value: 
+      objectReference: {fileID: 2015164741}
+    - target: {fileID: 7719490212834915835, guid: 104852b876b273e4a8278c2289977e07,
+        type: 3}
       propertyPath: jumpMagnitude
       value: 300
       objectReference: {fileID: 0}
@@ -2964,6 +2969,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5}
   m_EdgeRadius: 0
+--- !u!114 &2015164741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7719490212834915716, guid: 104852b876b273e4a8278c2289977e07,
+    type: 3}
+  m_PrefabInstance: {fileID: 2015164737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015164738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425bcaacc9ef2414baa90e6f3f567100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2123771642
 GameObject:
   m_ObjectHideFlags: 0
