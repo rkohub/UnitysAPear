@@ -72,6 +72,14 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+        checkGrounded(collision);
+    }
+
+    // void OnCollisionStay2D(Collision2D collision){
+        // checkGrounded(collision);
+    // }
+
+    public void checkGrounded(Collision2D collision){
         //Maybe Just ON Collision??? So it can reset on a tilting block
 
 
@@ -85,10 +93,17 @@ public class MoveCharacter : MonoBehaviour{
             //If there is another collider. aka just not using up the empty space in the array
             if(contacts[i].otherCollider != null){
                 //Debug.Log(contacts[i]);
-                //Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
-                //Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
+                Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
+                Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
                 if(contacts[i].collider.gameObject.tag == "Man"){
-                    isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
+                    Debug.Log(contacts[i].normal.x);
+                    Debug.Log(Mathf.Abs(contacts[i].normal.x) < 0.01);
+                    Debug.Log(contacts[i].point.x);
+                    Debug.Log(contacts[i].point.y);
+                    Debug.Log(collision.gameObject.transform.position.y);
+                    Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
+                    isGround |= Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
+                    Debug.Log(isGround);
                 }
             }
         }
