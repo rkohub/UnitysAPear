@@ -18,6 +18,7 @@ public class KeyMechanics : MonoBehaviour
         if(collision.gameObject.tag == "Man")
         {
             hasKey = true;
+            GetComponent<BoxCollider2D> ().enabled = false;
             GetComponent<Renderer> ().enabled = false;
             GameObject.Find("KeyLight2D").GetComponent<Light2D>().enabled = false;
             Debug.Log("hasKey");
