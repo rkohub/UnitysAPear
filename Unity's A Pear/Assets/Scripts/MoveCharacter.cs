@@ -80,7 +80,7 @@ public class MoveCharacter : MonoBehaviour{
                 //Debug.Log(contacts[i]);
                 //Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
                 //Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
-                if(contacts[i].collider.gameObject.tag == "Player"){
+                if(contacts[i].collider.gameObject.tag == "Man"){
                     isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
                 }
             }
