@@ -22,23 +22,33 @@ public class MoveCharacter : MonoBehaviour{
     private Vector2 force;
     public float airScalar;
     public bool isGround;
+    public LegsControl legScript;
+    private float moveScalar;
 
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
 
     void Start(){
         body = this.gameObject.GetComponent<Rigidbody2D>();
-        // airScalar = 0.75f;
         jumpsUsed = maxJumps;
     }
 
     // Update is called once per frame
     void Update(){
         if(coll){
-            accelerationMagnitude = baseAccel;
-            maxVelocity = baseMaxVelocity;
+            moveScalar = 1;
         }else{
-            accelerationMagnitude = baseAccel * airScalar;
-            maxVelocity = baseMaxVelocity * airScalar;
+            moveScalar = airScalar;
+        }
+        if(this.gameObject.name == "Legs" && legScript.attached){
+            jumpMagnitude         = legScript.attJumpMagnitude * moveScalar;
+            accelerationMagnitude = legScript.attAccelerationMagnitude * moveScalar;
+            maxVelocity           = legScript.attMaxVelocity;
+            maxJumps              = legScript.attMaxJumps;
+        }else{
+            jumpMagnitude         = baseJumpMagnitude * moveScalar;
+            accelerationMagnitude = baseAccel * moveScalar;
+            maxVelocity           = baseMaxVelocity;
+            maxJumps              = baseMaxJumps;
         }
 
         if(Mathf.Abs(body.velocity[0]) > maxVelocity){

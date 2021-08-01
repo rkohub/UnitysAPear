@@ -33,19 +33,19 @@ public class LegsControl : MonoBehaviour{
     void Update(){
         legBox.enabled = !attached;
         attachedBox.enabled = attached;
-        if(attached){
-            // Debug.Log("ATT");
-            myMovement.jumpMagnitude         = attJumpMagnitude;
-            myMovement.accelerationMagnitude = attAccelerationMagnitude;
-            myMovement.maxVelocity           = attMaxVelocity;
-            myMovement.maxJumps              = attMaxJumps;
-        }else{
-            // Debug.Log("SEP");
-            myMovement.jumpMagnitude         = myMovement.baseJumpMagnitude;
-            myMovement.accelerationMagnitude = myMovement.baseAccel;
-            myMovement.maxVelocity           = myMovement.baseMaxVelocity;
-            myMovement.maxJumps              = myMovement.baseMaxJumps;
-        }
+        // if(attached){
+        //     // Debug.Log("ATT");
+        //     myMovement.jumpMagnitude         = attJumpMagnitude;
+        //     myMovement.accelerationMagnitude = attAccelerationMagnitude;
+        //     myMovement.maxVelocity           = attMaxVelocity;
+        //     myMovement.maxJumps              = attMaxJumps;
+        // }else{
+        //     // Debug.Log("SEP");
+        //     myMovement.jumpMagnitude         = myMovement.baseJumpMagnitude;
+        //     myMovement.accelerationMagnitude = myMovement.baseAccel;
+        //     myMovement.maxVelocity           = myMovement.baseMaxVelocity;
+        //     myMovement.maxJumps              = myMovement.baseMaxJumps;
+        // }
         myMovement.enabled = selfEnabled || attached;
         if(selfEnabled || attached){
             // Debug.Log("L ENAB");
