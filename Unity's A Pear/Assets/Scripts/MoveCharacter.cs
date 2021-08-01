@@ -45,13 +45,20 @@ public class MoveCharacter : MonoBehaviour{
             body.velocity = new Vector2 (Mathf.Sign(body.velocity[0]) * maxVelocity,body.velocity[1]);
         }
         
+        if (Input.GetKey("d"))
+        {
+            body.AddForce(Vector2.right * accelerationMagnitude);
+        }
         if (Input.GetKey("a")){
             body.AddForce(Vector2.left * accelerationMagnitude);
         }
-        if (Input.GetKey("d")){
-            body.AddForce(Vector2.right * accelerationMagnitude);
+        if (!Input.GetKey("a") && !Input.GetKey("d"))
+        {
+            // Add in some sort of drag. If the player is holding no keys, they should slow down significantly,
+            // both in the air and on the ground. Cover w/ Ryan during meeting on Sunday
         }
-        if (Input.GetKeyDown("space") && jumpsUsed < maxJumps){
+
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && jumpsUsed < maxJumps){
             jump();
         }
 
