@@ -6,6 +6,7 @@ public class ButtonMechanics : MonoBehaviour
 {
     public bool isPressed;
     public Animator buttonPress;
+    public Animator buttonEffect;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class ButtonMechanics : MonoBehaviour
         {
             isPressed = true;
             buttonPress.SetTrigger("ButtonPressed");
+            buttonEffect.SetTrigger("ButtonEffect");
             Debug.Log("ButtonPressed");
         }
     }
