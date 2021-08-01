@@ -40,12 +40,12 @@ public class MoveCharacter : MonoBehaviour{
             moveScalar = airScalar;
         }
         if(this.gameObject.name == "Legs" && legScript.attached){
-            jumpMagnitude         = legScript.attJumpMagnitude * moveScalar;
+            jumpMagnitude         = legScript.attJumpMagnitude;
             accelerationMagnitude = legScript.attAccelerationMagnitude * moveScalar;
             maxVelocity           = legScript.attMaxVelocity;
             maxJumps              = legScript.attMaxJumps;
         }else{
-            jumpMagnitude         = baseJumpMagnitude * moveScalar;
+            jumpMagnitude         = baseJumpMagnitude;
             accelerationMagnitude = baseAccel * moveScalar;
             maxVelocity           = baseMaxVelocity;
             maxJumps              = baseMaxJumps;
