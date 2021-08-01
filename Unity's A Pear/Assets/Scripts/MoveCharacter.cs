@@ -21,6 +21,7 @@ public class MoveCharacter : MonoBehaviour{
     public float maxVelocity;
     private Vector2 force;
     public float airScalar;
+    public bool isGround;
 
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
 
@@ -64,12 +65,36 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+        //Maybe Just ON Collision??? So it can reset on a tilting block
+
+
         Debug.Log("COLL");
+        //Debug.Log(collision.gameObject.name); //This is the incomming collider or the one you are landing on.
+        //Debug.Log(collision.otherCollider.gameObject.name); //yourself. Other thing is yourself. Because usually the primary collider you are worried about in a collision is what you hit so the other less important thing would be yourself
+        //Collision. collider is the collider of the thing you oare landing on.
         collision.collider.GetContacts(contacts);
-        bool isGround = contacts[0].normal.x == 0 && contacts[0].point.y > collision.gameObject.transform.position.y;
+        // Debug.Log(contacts.Length);
+        for(int i = 0; i < contacts.Length; i++){
+            //If there is another collider. aka just not using up the empty space in the array
+            if(contacts[i].otherCollider != null){
+                //Debug.Log(contacts[i]);
+                //Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
+                //Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
+                if(contacts[i].collider.gameObject.tag == "Player"){
+                    isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
+                }
+            }
+        }
+        //Debug.Log(contacts[0].normal.x);
+        //Debug.Log(Mathf.Abs(contacts[0].normal.x) < 0.01);
+        // Debug.Log(contacts[0].point.y);
+        // Debug.Log(collision.gameObject.name);
+        // Debug.Log(collision.gameObject.transform.position.y);
+
+        //bool isGround = Mathf.Abs(contacts[0].normal.x) < 0.01 && contacts[0].point.y > collision.gameObject.transform.position.y;
         Debug.Log(isGround);
 
-        if(collision.gameObject.tag == "Stage" && isGround){
+        if(isGround){//&& collision.gameObject.tag == "Stage" && ){
             coll = true;
             jumpsUsed = 0;
         }
