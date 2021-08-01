@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class KeyMechanics : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class KeyMechanics : MonoBehaviour
         {
             hasKey = true;
             GetComponent<Renderer> ().enabled = false;
+            GameObject.Find("KeyLight2D").GetComponent<Light>().enabled = false;
             Debug.Log("hasKey");
         }
     }
