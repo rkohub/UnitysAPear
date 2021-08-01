@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7719490211514592527}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Player
+  m_TagString: Man
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   baseMaxVelocity: 3
   maxVelocity: 0
   airScalar: 0.75
+  isGround: 0
 --- !u!114 &7719490211514592527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ GameObject:
   - component: {fileID: 7719490212834915716}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Player
+  m_TagString: Man
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
   baseMaxVelocity: 5
   maxVelocity: 0
   airScalar: 0.75
+  isGround: 0
 --- !u!114 &7719490212834915716
 MonoBehaviour:
   m_ObjectHideFlags: 0

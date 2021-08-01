@@ -928,11 +928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7719490211514592525, guid: 104852b876b273e4a8278c2289977e07,
-        type: 3}
-      propertyPath: m_TagString
-      value: Man
-      objectReference: {fileID: 0}
     - target: {fileID: 7719490212834915832, guid: 104852b876b273e4a8278c2289977e07,
         type: 3}
       propertyPath: m_RootOrder
@@ -992,11 +987,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Legs
-      objectReference: {fileID: 0}
-    - target: {fileID: 7719490212834915838, guid: 104852b876b273e4a8278c2289977e07,
-        type: 3}
-      propertyPath: m_TagString
-      value: Man
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 104852b876b273e4a8278c2289977e07, type: 3}
@@ -1273,7 +1263,6 @@ MonoBehaviour:
   staysPressed: 0
   isPressed: 0
   buttonPress: {fileID: 3633497748841288432}
-  buttonRelease: {fileID: 3633497748841288432}
   buttonEffect: {fileID: 304640016}
 --- !u!61 &2034242410
 BoxCollider2D:
