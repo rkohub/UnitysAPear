@@ -1270,8 +1270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc00193acd5d2f4ca3ec30d538644a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staysPressed: 0
   isPressed: 0
   buttonPress: {fileID: 3633497748841288432}
+  buttonRelease: {fileID: 3633497748841288432}
   buttonEffect: {fileID: 304640016}
 --- !u!61 &2034242410
 BoxCollider2D:
@@ -1418,6 +1420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633497748822352380, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stage
       objectReference: {fileID: 0}
     - target: {fileID: 3633497749201325061, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
         type: 3}
