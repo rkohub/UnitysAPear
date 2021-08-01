@@ -19,7 +19,7 @@ public class KeyMechanics : MonoBehaviour
         {
             hasKey = true;
             GetComponent<Renderer> ().enabled = false;
-            GameObject.Find("KeyLight2D").GetComponent<Light>().enabled = false;
+            GameObject.Find("KeyLight2D").GetComponent<Light2D>().enabled = false;
             Debug.Log("hasKey");
         }
     }
