@@ -102,11 +102,16 @@ public class MoveCharacter : MonoBehaviour{
                     Debug.Log(contacts[i].point.y);
                     Debug.Log(collision.gameObject.transform.position.y);
                     Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
-                    isGround |= Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
+                    isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
                     Debug.Log(isGround);
+                    if(isGround){
+                        break;
+                    }
                 }
             }
         }
+
+        Debug.Log("ENDED");
         //Debug.Log(contacts[0].normal.x);
         //Debug.Log(Mathf.Abs(contacts[0].normal.x) < 0.01);
         // Debug.Log(contacts[0].point.y);

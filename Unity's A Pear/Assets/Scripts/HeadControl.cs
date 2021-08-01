@@ -30,7 +30,7 @@ public class HeadControl : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         myMovement.enabled = !attached && selfEnabled;
-        // coll.enabled = !attached;
+        coll.enabled = !attached;
         if(attached){
             body.velocity = new Vector2 (0,0);
             this.gameObject.transform.localPosition = new Vector2(0,1.5f);
