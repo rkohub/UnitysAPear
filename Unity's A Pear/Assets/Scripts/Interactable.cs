@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour{
                 }
             }
 
-            if(!pressedButton && interactHitbox != null){
+            if(!pressedButton && interactHitbox != null && this.gameObject.name != "Head"){ //Comment out last and if want head to have a punch
                 interactHitbox.enabled = true;
                 elapsedUpTime = 0;
             }
