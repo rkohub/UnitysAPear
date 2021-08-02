@@ -9,6 +9,7 @@ public class HeadControl : MonoBehaviour{
     public GameObject legs;
     public LegsControl legScript;
     public MoveCharacter myMovement;
+    public Interactable myInteract;
     public bool attached;
     public bool controllingLegs;
     public bool selfEnabled;
@@ -17,6 +18,7 @@ public class HeadControl : MonoBehaviour{
     private Rigidbody2D body;
     public Collider2D coll;
     public float distToAttach;
+    private bool inControl;
     // Start is called before the first frame update
 
     void Start(){
@@ -29,7 +31,12 @@ public class HeadControl : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        myMovement.enabled = !attached && selfEnabled;
+        inControl = !attached && selfEnabled;
+        myMovement.enabled = inControl;
+        if(!inControl){
+            myInteract.interactHitbox.enabled = false;
+        }
+        myInteract.enabled = inControl;
         coll.enabled = !attached;
         if(attached){
             body.velocity = new Vector2 (0,0);
