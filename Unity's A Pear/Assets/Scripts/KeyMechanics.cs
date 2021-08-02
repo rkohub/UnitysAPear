@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class KeyMechanics : MonoBehaviour
 {
     public bool hasKey;
+    public GameObject KeyLight;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class KeyMechanics : MonoBehaviour
             hasKey = true;
             GetComponent<BoxCollider2D> ().enabled = false;
             GetComponent<Renderer> ().enabled = false;
-            GameObject.Find("KeyLight2D").GetComponent<Light2D>().enabled = false;
+            KeyLight.GetComponent<Light2D>().enabled = false;
             Debug.Log("hasKey");
         }
     }

@@ -39,9 +39,9 @@ public class ButtonMechanics : MonoBehaviour
     //     buttonEffect.SetTrigger("ButtonEffect");
     //     yield return new WaitForSeconds(3f);
     // }
-        IEnumerator Wait(){
-            yield return new WaitForSeconds(3);
-        }
+        // IEnumerator Wait(){
+        //     yield return new WaitForSeconds(3);
+        // }
 
     // void OnCollisionExit2D(Collision2D collision)
     // {
