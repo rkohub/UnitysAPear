@@ -8,17 +8,18 @@ public class MoveCharacter : MonoBehaviour{
     //Todo
     //Fix Error where reset jumps on hit bottom of platforms
 
-    public float baseJumpMagnitude;
-    public float jumpMagnitude;
+    
+    private float jumpMagnitude;
     private Rigidbody2D body;
-    public float baseAccel;
-    public float accelerationMagnitude;
+    private float accelerationMagnitude;
     public bool coll;
-    public int baseMaxJumps;
-    public int maxJumps;
-    public int jumpsUsed;
+    public float baseJumpMagnitude;
+    public float baseAccel;
     public float baseMaxVelocity;
-    public float maxVelocity;
+    public int baseMaxJumps;
+    private int maxJumps;
+    private int jumpsUsed;
+    private float maxVelocity;
     private Vector2 force;
     public float airScalar;
     public bool isGround;
@@ -52,18 +53,21 @@ public class MoveCharacter : MonoBehaviour{
         }
 
         if(Mathf.Abs(body.velocity[0]) > maxVelocity){
+            //Debug.Log("CAPING SPEED");
             body.velocity = new Vector2 (Mathf.Sign(body.velocity[0]) * maxVelocity,body.velocity[1]);
         }
         
-        if (Input.GetKey("d"))
-        {
+        if (Input.GetKey("d")){
+            //Debug.Log("DDDD");
             body.AddForce(Vector2.right * accelerationMagnitude);
         }
         if (Input.GetKey("a")){
+            //Debug.Log("AAA");
             body.AddForce(Vector2.left * accelerationMagnitude);
         }
         if (!Input.GetKey("a") && !Input.GetKey("d"))
         {
+            
             // Add in some sort of drag. If the player is holding no keys, they should slow down significantly,
             // both in the air and on the ground. Cover w/ Ryan during meeting on Sunday
         }
@@ -103,17 +107,17 @@ public class MoveCharacter : MonoBehaviour{
             //If there is another collider. aka just not using up the empty space in the array
             if(contacts[i].otherCollider != null){
                 //Debug.Log(contacts[i]);
-                Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
-                Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
+                //Debug.Log(contacts[i].collider.gameObject.name); //The thing that hit the thing you landed on. aka you
+                //Debug.Log(contacts[i].otherCollider.gameObject.name); //yourself (aka the thing that is getting collided with) (see above)
                 if(contacts[i].collider.gameObject.tag == "Man"){
-                    Debug.Log(contacts[i].normal.x);
-                    Debug.Log(Mathf.Abs(contacts[i].normal.x) < 0.01);
-                    Debug.Log(contacts[i].point.x);
-                    Debug.Log(contacts[i].point.y);
-                    Debug.Log(collision.gameObject.transform.position.y);
-                    Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
+                    // Debug.Log(contacts[i].normal.x);
+                    // Debug.Log(Mathf.Abs(contacts[i].normal.x) < 0.01);
+                    // Debug.Log(contacts[i].point.x);
+                    // Debug.Log(contacts[i].point.y);
+                    // Debug.Log(collision.gameObject.transform.position.y);
+                    // Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
                     isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
-                    Debug.Log(isGround);
+                    // Debug.Log(isGround);
                     if(isGround){
                         break;
                     }
