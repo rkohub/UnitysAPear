@@ -25,12 +25,16 @@ public class MoveCharacter : MonoBehaviour{
     public bool isGround;
     public LegsControl legScript;
     private float moveScalar;
+    public bool isFacingRight;
+    public float scaleConst;
+    public Collider2D interactHitbox;
 
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
 
     void Start(){
         body = this.gameObject.GetComponent<Rigidbody2D>();
         jumpsUsed = maxJumps;
+        isFacingRight = true;
     }
 
     // Update is called once per frame
@@ -57,14 +61,24 @@ public class MoveCharacter : MonoBehaviour{
             body.velocity = new Vector2 (Mathf.Sign(body.velocity[0]) * maxVelocity,body.velocity[1]);
         }
         
-        if (Input.GetKey("d")){
-            //Debug.Log("DDDD");
-            body.AddForce(Vector2.right * accelerationMagnitude);
-        }
+        
         if (Input.GetKey("a")){
             //Debug.Log("AAA");
             body.AddForce(Vector2.left * accelerationMagnitude);
+            isFacingRight = false;
         }
+        if (Input.GetKey("d")){
+            //Debug.Log("DDDD");
+            body.AddForce(Vector2.right * accelerationMagnitude);
+            isFacingRight = true;
+        }
+
+        //scaleConst = this.gameObject.name == "Head" ? 1.0f : 0.5f; // Head is scaled diffeerntly from legs
+                                                    //I have been forced to repent for my sins
+                                            //Flips Model to face forward depending on move diretion
+        //this.gameObject.transform.localScale = new Vector3 (scaleConst * (isFacingRight ? 1:-1), this.gameObject.transform.localScale[1], this.gameObject.transform.localScale[2]);                               //sowwy uwu
+        interactHitbox.offset = new Vector2 ((isFacingRight ? 1:-1), 0);
+
         if (!Input.GetKey("a") && !Input.GetKey("d"))
         {
             
