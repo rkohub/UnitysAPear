@@ -7,6 +7,7 @@ public class LegsControl : MonoBehaviour{
     public GameObject head;
     public HeadControl headScript;
     public MoveCharacter myMovement;
+    public Interactable myInteract;
     public Collider2D legBox;
     public Collider2D attachedBox;
     public bool attached;
@@ -20,6 +21,7 @@ public class LegsControl : MonoBehaviour{
     public float attAccelerationMagnitude;
     public float attMaxVelocity;
     public int attMaxJumps;
+    private bool inControl ;
     // Start is called before the first frame update
 
     void Start(){
@@ -31,6 +33,7 @@ public class LegsControl : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+
         legBox.enabled = !attached;
         attachedBox.enabled = attached;
         // if(attached){
@@ -46,7 +49,14 @@ public class LegsControl : MonoBehaviour{
         //     myMovement.maxVelocity           = myMovement.baseMaxVelocity;
         //     myMovement.maxJumps              = myMovement.baseMaxJumps;
         // }
-        myMovement.enabled = selfEnabled || attached;
+
+        inControl  = selfEnabled || attached;
+        myMovement.enabled = inControl;
+        if(!inControl){
+            myInteract.interactHitbox.enabled = false;
+        }
+        myInteract.enabled = inControl;
+
         if(selfEnabled || attached){
             // Debug.Log("L ENAB");
             if(readyToChange){

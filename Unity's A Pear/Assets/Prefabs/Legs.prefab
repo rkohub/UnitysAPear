@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 7719490211514592523}
   - component: {fileID: 7719490211514592520}
   - component: {fileID: 7719490211514592527}
+  - component: {fileID: 1107763594}
+  - component: {fileID: 1107763595}
   m_Layer: 0
   m_Name: Head
   m_TagString: Man
@@ -255,6 +257,9 @@ MonoBehaviour:
   airScalar: 0.9
   isGround: 0
   legScript: {fileID: 0}
+  isFacingRight: 0
+  scaleConst: 0
+  interactHitbox: {fileID: 1107763594}
 --- !u!114 &7719490211514592527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +275,7 @@ MonoBehaviour:
   legs: {fileID: 7719490212834915838}
   legScript: {fileID: 7719490212834915716}
   myMovement: {fileID: 7719490211514592520}
+  myInteract: {fileID: 1107763595}
   attached: 0
   controllingLegs: 0
   selfEnabled: 0
@@ -277,6 +283,51 @@ MonoBehaviour:
   readyToAttachFromHead: 0
   coll: {fileID: 7719490211514592521}
   distToAttach: 3
+--- !u!61 &1107763594
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719490211514592525}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1107763595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719490211514592525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e4da491f0348b429783e290b8d846f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 0
+  colls: []
+  pressedButton: 0
+  interactHitbox: {fileID: 1107763594}
+  hitboxUpTime: 1
+  elapsedUpTime: 0
+  coolDownTime: 0
 --- !u!1 &7719490212834915838
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +343,8 @@ GameObject:
   - component: {fileID: 7719490212834915835}
   - component: {fileID: 7719490212834915716}
   - component: {fileID: 2015164740}
+  - component: {fileID: 19485543}
+  - component: {fileID: 19485544}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Man
@@ -424,6 +477,9 @@ MonoBehaviour:
   airScalar: 0.7
   isGround: 0
   legScript: {fileID: 7719490212834915716}
+  isFacingRight: 0
+  scaleConst: 0
+  interactHitbox: {fileID: 19485543}
 --- !u!114 &7719490212834915716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +495,7 @@ MonoBehaviour:
   head: {fileID: 7719490211514592525}
   headScript: {fileID: 7719490211514592527}
   myMovement: {fileID: 7719490212834915835}
+  myInteract: {fileID: 19485544}
   legBox: {fileID: 7719490212834915833}
   attachedBox: {fileID: 2015164740}
   attached: 0
@@ -458,7 +515,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719490212834915838}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -477,3 +534,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5}
   m_EdgeRadius: 0
+--- !u!61 &19485543
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719490212834915838}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &19485544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719490212834915838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e4da491f0348b429783e290b8d846f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 5
+  colls: []
+  pressedButton: 0
+  interactHitbox: {fileID: 19485543}
+  hitboxUpTime: 0.2
+  elapsedUpTime: 0
+  coolDownTime: 0.5
