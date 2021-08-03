@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour{
     public Collider2D interactHitbox;
     public float hitboxUpTime;
     public float elapsedUpTime;
+    public float coolDownTime;
 
     // Start is called before the first frame update
     void Start(){
@@ -34,7 +35,7 @@ public class Interactable : MonoBehaviour{
                 }
             }
 
-            if(!pressedButton && interactHitbox != null && this.gameObject.name != "Head"){ //Comment out last and if want head to have a punch
+            if(!pressedButton && interactHitbox != null && this.gameObject.name != "Head" && elapsedUpTime > coolDownTime){ //Comment out last and if want head to have a punch
                 interactHitbox.enabled = true;
                 elapsedUpTime = 0;
             }

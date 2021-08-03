@@ -327,6 +327,7 @@ MonoBehaviour:
   interactHitbox: {fileID: 1107763594}
   hitboxUpTime: 1
   elapsedUpTime: 0
+  coolDownTime: 0
 --- !u!1 &7719490212834915838
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,5 +576,6 @@ MonoBehaviour:
   colls: []
   pressedButton: 0
   interactHitbox: {fileID: 19485543}
-  hitboxUpTime: 1
+  hitboxUpTime: 0.2
   elapsedUpTime: 0
+  coolDownTime: 0.5
