@@ -17,14 +17,11 @@ public class ButtonMechanics : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Man")
-        {
             isPressed = true;
             buttonPress.SetTrigger("ButtonPressed");
             buttonEffect.SetTrigger("ButtonEffect");
             Debug.Log("ButtonPressed");
             // Wait();
-        }
 
         // if(!staysPressed)
         // {
