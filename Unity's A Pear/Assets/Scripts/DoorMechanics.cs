@@ -7,7 +7,7 @@ public class DoorMechanics : MonoBehaviour
     public bool isLocked;
     public Animator doorUnlocked;
     public KeyMechanics keyScript;
-    public ButtonMechanics buttonScript;
+    // public ButtonMechanics buttonScript;
     // public GameObject key;
 
     void Start()
@@ -25,7 +25,7 @@ public class DoorMechanics : MonoBehaviour
     {
         if(collision.gameObject.tag == "Man")
         {
-            if(keyScript.hasKey || buttonScript.isPressed)
+            if(keyScript.hasKey)
             {
                 GetComponent<BoxCollider2D> ().enabled = false;
                 isLocked = false;
