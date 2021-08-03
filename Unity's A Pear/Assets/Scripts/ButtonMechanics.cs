@@ -8,6 +8,7 @@ public class ButtonMechanics : MonoBehaviour
     public bool isPressed;
     public Animator buttonPress;
     public Animator buttonEffect;
+    public Animator grateOpen;
 
     void Start()
     {
@@ -18,9 +19,11 @@ public class ButtonMechanics : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
             isPressed = true;
+            Debug.Log("ButtonPressed");
             buttonPress.SetTrigger("ButtonPressed");
             buttonEffect.SetTrigger("ButtonEffect");
-            Debug.Log("ButtonPressed");
+            grateOpen.SetTrigger("ButtonPressed");
+            Debug.Log("animation played");
             // Wait();
 
         // if(!staysPressed)
