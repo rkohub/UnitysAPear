@@ -11,7 +11,7 @@ public class StartCutscene : MonoBehaviour
         if(collision.tag == "Man" || collision.tag == "Player")
         {
             cameraAnimation.SetBool("cutscene1", true);
-            Invoke(nameof(StopCutscene), 3f);
+            Invoke(nameof(StopCutscene), 2f);
         }
     }
 
