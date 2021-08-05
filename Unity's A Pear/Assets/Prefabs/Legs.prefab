@@ -503,7 +503,7 @@ MonoBehaviour:
   selfEnabled: 1
   readyToChange: 0
   readyToAttachFromLegs: 0
-  distToAttach: 3
+  distToAttach: 0.1
   attJumpMagnitude: 300
   attAccelerationMagnitude: 7
   attMaxVelocity: 2.75
