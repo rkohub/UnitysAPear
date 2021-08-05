@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Man
   - Button
+  - Box
   layers:
   - Default
   - TransparentFX

@@ -515,7 +515,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 528506839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b563997111cefe3468453bc50b28f370, type: 3}
+  m_Script: {fileID: 11500000, guid: dc7014beb9ccceb4ba3b5dcb997ff279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
@@ -533,9 +533,8 @@ MonoBehaviour:
   - {fileID: 437563676}
   - {fileID: 982982212}
   buttonsDown: 00000000
-  distToDown: 1.2
-  key1: {fileID: 1485942460}
-  key2: {fileID: 60741676}
+  distToDown: 1.1
+  door1: {fileID: 572179618}
   block: {fileID: 982982212}
 --- !u!4 &528506841
 Transform:
@@ -551,6 +550,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &572179618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5134690433819531233, guid: 13dd71a3eb6688b42989d0bd9a1f6b60,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569763787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &717114696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1016,6 +1021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 3633497748822352380, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3633497749201325061, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,19 +1237,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c, type: 3}
---- !u!1 &1485942460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7772437699865531562, guid: 54459671009cf3f4d8e1554816fde7cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 912195179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1485942463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7772437699865531561, guid: 54459671009cf3f4d8e1554816fde7cd,
     type: 3}
   m_PrefabInstance: {fileID: 912195179}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485942460}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 266a7f076928be844b548a29e4f44624, type: 3}
@@ -1385,6 +1389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633497748822352380, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3633497749201325061, guid: 3cae5dd55623e4a47bc4ca3b3107ef8c,
         type: 3}
