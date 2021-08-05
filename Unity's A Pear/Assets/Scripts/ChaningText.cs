@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChaningText : MonoBehaviour
 {
     public Text pair;
+    public Animator crossfade;
     public bool spellingPair;
     public bool isTyping;
     public float timeSinceLastChange;
@@ -17,6 +18,7 @@ public class ChaningText : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        crossfade.SetBool("isPlaying", true);
         currentLetter = 0;
         spellingPair = false;
         isTyping = false;
@@ -24,41 +26,44 @@ public class ChaningText : MonoBehaviour
 
     void Update()
     {
-        timeSinceLastChange+=Time.deltaTime;
-
-        if(spellingPair)
+        if(crossfade.GetCurrentAnimatorStateInfo(0).IsName("PearFlicker"))
         {
-            if(timeSinceLastChange>inbetweenTime)
+            timeSinceLastChange+=Time.deltaTime;
+
+            if(spellingPair)
             {
-                if(isTyping)
+                if(timeSinceLastChange>inbetweenTime)
                 {
-                    AddCharacter(currentLetter, spellingPair);
-                }else{
-                    Delete();
-                }
+                    if(isTyping)
+                    {
+                        AddCharacter(currentLetter, spellingPair);
+                    }else{
+                        Delete();
+                    }
 
-                timeSinceLastChange = 0;
+                    timeSinceLastChange = 0;
+                }
+            }else{
+                if(timeSinceLastChange>inbetweenTime)
+                {
+                    if(isTyping)
+                    {
+                        AddCharacter(currentLetter, spellingPair);
+                    }else{
+                        Delete();
+                    }
+
+                    timeSinceLastChange = 0;
+                }
             }
-        }else{
-            if(timeSinceLastChange>inbetweenTime)
+
+            if(currentLetter == pairWord.Length)
             {
-                if(isTyping)
-                {
-                    AddCharacter(currentLetter, spellingPair);
-                }else{
-                    Delete();
-                }
-
-                timeSinceLastChange = 0;
+                currentLetter = 0;
+                spellingPair = !spellingPair;
+                timeSinceLastChange = -2;
+                isTyping = false;
             }
-        }
-
-        if(currentLetter == pairWord.Length)
-        {
-            currentLetter = 0;
-            spellingPair = !spellingPair;
-            timeSinceLastChange = -2;
-            isTyping = false;
         }
     }
 

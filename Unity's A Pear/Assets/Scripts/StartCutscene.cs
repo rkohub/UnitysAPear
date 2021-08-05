@@ -16,7 +16,7 @@ public class StartCutscene : MonoBehaviour
             cameraAnimation.SetBool("cutscene1", true);
             duck.SetTrigger("DuckRun");
             duck.SetTrigger("DuckSteal");
-            Invoke(nameof(StopCutscene), 6f);
+            Invoke(nameof(StopCutscene), 7.5f);
         }
     }
 

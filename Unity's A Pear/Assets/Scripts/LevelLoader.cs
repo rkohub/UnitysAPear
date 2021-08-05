@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader: MonoBehaviour
 {
     public Animator transition;
-    public float transitionTime = 0.01f;
+    public float transitionTime;
 
     public void Switch()
     {
