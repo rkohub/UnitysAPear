@@ -18,7 +18,7 @@ public class MoveCharacter : MonoBehaviour{
     public float baseMaxVelocity;
     public int baseMaxJumps;
     private int maxJumps;
-    private int jumpsUsed;
+    public int jumpsUsed;
     private float maxVelocity;
     private Vector2 force;
     public float airScalar;
@@ -28,6 +28,8 @@ public class MoveCharacter : MonoBehaviour{
     public bool isFacingRight;
     public float scaleConst;
     public Collider2D interactHitbox;
+    public float jumpCooldownElapsed; 
+    public float jumpCooldown;
 
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
 
@@ -39,6 +41,7 @@ public class MoveCharacter : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        jumpCooldownElapsed += Time.deltaTime;
         if(coll){
             moveScalar = 1;
         }else{
@@ -86,7 +89,7 @@ public class MoveCharacter : MonoBehaviour{
             // both in the air and on the ground. Cover w/ Ryan during meeting on Sunday
         }
 
-        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && jumpsUsed < maxJumps){
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && jumpsUsed < maxJumps && jumpCooldownElapsed > jumpCooldown){
             jump();
         }
 
@@ -94,18 +97,33 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     public void jump(){
-       body.velocity = new Vector2 (body.velocity[0],0);
-       body.AddForce(Vector2.up * jumpMagnitude);
-       jumpsUsed += 1;
+        bool foundACollision = true;
+        for(int j = 0; j < 1; j++){//        while(foundACollision){
+            this.gameObject.GetComponent<Collider2D>().GetContacts(contacts);
+            for(int i = 0; i < contacts.Length; i++){
+                if(contacts[i].otherCollider != null){
+                    Debug.Log(contacts[i].collider.gameObject.name);
+                    Debug.Log(contacts[i].otherCollider.gameObject.name);
+                    Debug.Log(contacts[i].point);
+                    this.gameObject.transform.Translate(new Vector2 (0, 0.01f));
+                }
+            }
+        }
+        
+        // this.gameObject.transform.Translate(new Vector2 (0, 0.01f));
+        body.velocity = new Vector2 (body.velocity[0],0);
+        body.AddForce(Vector2.up * jumpMagnitude);
+        jumpsUsed += 1;
     }
 
     void OnCollisionEnter2D(Collision2D collision){
         checkGrounded(collision);
+        jumpCooldownElapsed = 0;
     }
 
-    // void OnCollisionStay2D(Collision2D collision){
-        // checkGrounded(collision);
-    // }
+    void OnCollisionStay2D(Collision2D collision){
+        checkGrounded(collision);
+    }
 
     public void checkGrounded(Collision2D collision){
         //Maybe Just ON Collision??? So it can reset on a tilting block
@@ -131,7 +149,7 @@ public class MoveCharacter : MonoBehaviour{
                     // Debug.Log(collision.gameObject.transform.position.y);
                     // Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
                     isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
-                    // Debug.Log(isGround);
+                    Debug.Log(isGround);
                     if(isGround){
                         break;
                     }
