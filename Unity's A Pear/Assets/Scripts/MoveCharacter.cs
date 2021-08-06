@@ -48,6 +48,7 @@ public class MoveCharacter : MonoBehaviour{
             moveScalar = airScalar;
         }
         if(this.gameObject.name == "Legs" && legScript.attached){
+            print("ATT");
             jumpMagnitude         = legScript.attJumpMagnitude;
             accelerationMagnitude = legScript.attAccelerationMagnitude * moveScalar;
             maxVelocity           = legScript.attMaxVelocity;
@@ -97,14 +98,14 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     public void jump(){
-        bool foundACollision = true;
+        // bool foundACollision = true;
         for(int j = 0; j < 1; j++){//        while(foundACollision){
             this.gameObject.GetComponent<Collider2D>().GetContacts(contacts);
             for(int i = 0; i < contacts.Length; i++){
                 if(contacts[i].otherCollider != null){
-                    Debug.Log(contacts[i].collider.gameObject.name);
-                    Debug.Log(contacts[i].otherCollider.gameObject.name);
-                    Debug.Log(contacts[i].point);
+                    //Debug.Log(contacts[i].collider.gameObject.name);
+                    //Debug.Log(contacts[i].otherCollider.gameObject.name);
+                    // Debug.Log(contacts[i].point);
                     this.gameObject.transform.Translate(new Vector2 (0, 0.01f));
                 }
             }
@@ -129,7 +130,7 @@ public class MoveCharacter : MonoBehaviour{
         //Maybe Just ON Collision??? So it can reset on a tilting block
 
 
-        Debug.Log("COLL");
+        //Debug.Log("COLL");
         //Debug.Log(collision.gameObject.name); //This is the incomming collider or the one you are landing on.
         //Debug.Log(collision.otherCollider.gameObject.name); //yourself. Other thing is yourself. Because usually the primary collider you are worried about in a collision is what you hit so the other less important thing would be yourself
         //Collision. collider is the collider of the thing you oare landing on.
@@ -149,7 +150,7 @@ public class MoveCharacter : MonoBehaviour{
                     // Debug.Log(collision.gameObject.transform.position.y);
                     // Debug.Log(contacts[i].point.y > collision.gameObject.transform.position.y);
                     isGround = Mathf.Abs(contacts[i].normal.x) < 0.01 && contacts[i].point.y > collision.gameObject.transform.position.y;
-                    Debug.Log(isGround);
+                    //Debug.Log(isGround);
                     if(isGround){
                         break;
                     }
@@ -157,7 +158,7 @@ public class MoveCharacter : MonoBehaviour{
             }
         }
 
-        Debug.Log("ENDED");
+        //Debug.Log("ENDED");
         //Debug.Log(contacts[0].normal.x);
         //Debug.Log(Mathf.Abs(contacts[0].normal.x) < 0.01);
         // Debug.Log(contacts[0].point.y);
@@ -165,7 +166,7 @@ public class MoveCharacter : MonoBehaviour{
         // Debug.Log(collision.gameObject.transform.position.y);
 
         //bool isGround = Mathf.Abs(contacts[0].normal.x) < 0.01 && contacts[0].point.y > collision.gameObject.transform.position.y;
-        Debug.Log(isGround);
+        //Debug.Log(isGround);
 
         if(isGround){//&& collision.gameObject.tag == "Stage" && ){
             coll = true;

@@ -10,20 +10,26 @@ public class ButtonMechanics : MonoBehaviour
     public Animator buttonEffect;
     public Animator grateOpen;
 
+    private bool ryanPressed;
+
     void Start()
     {
         isPressed = false;
+        // ryanPressed = false;
         // staysPressed = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
             isPressed = true;
-            Debug.Log("ButtonPressed");
-            buttonPress.SetTrigger("ButtonPressed");
-            buttonEffect.SetTrigger("ButtonEffect");
-            grateOpen.SetTrigger("ButtonPressed");
-            Debug.Log("animation played");
+            //ryanPressed = true;
+            //Debug.Log("ButtonPressed");
+            //buttonPress.SetTrigger("ButtonPressed");
+            //buttonEffect.SetTrigger("ButtonEffect");
+            //grateOpen.SetTrigger("ButtonPressed");
+            //Debug.Log("animation played");
+            //Debug.Log(ryanPressed);
+            
             // Wait();
 
         // if(!staysPressed)
@@ -31,6 +37,12 @@ public class ButtonMechanics : MonoBehaviour
         //     OnCollisionExit2D();
         // }
     }
+
+    // void Update(){
+    //     if(this.gameObject.name == "Button"){
+    //         print(ryanPressed);
+    //     }
+    // }
 
     // IEnumerator DoAnimation()
     // {
@@ -52,4 +64,19 @@ public class ButtonMechanics : MonoBehaviour
     //     }
     //     Debug.Log("not being pressed");
     // } 
+
+    // void OnCollisionExit2D(Collision2D collision){
+    //     // Debug.Log(collision.gameObject.tag);
+    //     if(collision.gameObject.tag == "Man"){
+    //         Debug.Log("not being pressed anymore");
+    //         ryanPressed = false;
+    //     }
+    // }
+
+    // void OnCollisionStay2D(Collision2D collision){
+    //     if(collision.gameObject.tag == "Man"){
+    //         Debug.Log("holding");
+    //         ryanPressed = true;
+    //     }
+    // }
 }
