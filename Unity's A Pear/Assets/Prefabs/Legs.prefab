@@ -254,12 +254,15 @@ MonoBehaviour:
   baseAccel: 4
   baseMaxVelocity: 1.5
   baseMaxJumps: 1
+  jumpsUsed: 0
   airScalar: 0.9
   isGround: 0
   legScript: {fileID: 0}
   isFacingRight: 0
   scaleConst: 0
   interactHitbox: {fileID: 1107763594}
+  jumpCooldownElapsed: 0
+  jumpCooldown: 0.1
 --- !u!114 &7719490211514592527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,12 +477,15 @@ MonoBehaviour:
   baseAccel: 9
   baseMaxVelocity: 3
   baseMaxJumps: 2
+  jumpsUsed: 0
   airScalar: 0.7
   isGround: 0
   legScript: {fileID: 7719490212834915716}
   isFacingRight: 0
   scaleConst: 0
   interactHitbox: {fileID: 19485543}
+  jumpCooldownElapsed: 0
+  jumpCooldown: 0.1
 --- !u!114 &7719490212834915716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +509,7 @@ MonoBehaviour:
   selfEnabled: 1
   readyToChange: 0
   readyToAttachFromLegs: 0
-  distToAttach: 3
+  distToAttach: 0.1
   attJumpMagnitude: 300
   attAccelerationMagnitude: 7
   attMaxVelocity: 2.75
