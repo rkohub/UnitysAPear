@@ -13,6 +13,7 @@ public class ButtonManager2 : MonoBehaviour{
 
     public GameObject door1;
     public GameObject block;
+    public GameObject key1;
 
     // Start is called before the first frame update
     void Start(){
@@ -35,10 +36,14 @@ public class ButtonManager2 : MonoBehaviour{
             }
         }
 
-         door1.GetComponent<BoxCollider2D>().enabled = buttonsDown[3];
+        door1.GetComponent<BoxCollider2D>().enabled = !buttonsDown[1];
         
         if(buttonsDown[2]){
             block.SetActive(true);
+        }
+
+        if(buttonsDown[0]){
+            key1.SetActive(true);
         }
     }
 }
