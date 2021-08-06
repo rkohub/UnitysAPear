@@ -10,6 +10,7 @@ TagManager:
   - Man
   - Button
   - Box
+  - Duck
   layers:
   - Default
   - TransparentFX
