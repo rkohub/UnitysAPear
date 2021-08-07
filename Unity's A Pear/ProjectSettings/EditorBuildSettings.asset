@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BUTTON.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Tutorial1.unity
+    guid: d36e69e796fd8d84dbdaca354a86d37d
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity
+    guid: 26f3caded755d2442b225d682547c47a
+  - enabled: 1
+    path: Assets/Scenes/Tutorial3.unity
+    guid: d6c73db2d6a06eb46a577a8ab85e6841
+  - enabled: 1
+    path: Assets/Scenes/IntroButtonBlock.unity
+    guid: 52654545167570748997439505188d66
+  - enabled: 1
+    path: Assets/Scenes/FinalBlockBUtton.unity
+    guid: 820dd44e02c74d248a7a369f017af0d4
+  - enabled: 1
+    path: Assets/Scenes/IntroDarkness.unity
+    guid: c6248c3dc3a7f5249afe1c74da16f9e5
+  - enabled: 1
+    path: Assets/Scenes/RealDarkness 1.unity
+    guid: b222827604eb0964aab16ab80c5672e7
   - enabled: 1
     path: Assets/Scenes/LastLevel.unity
     guid: 949382749c6cd7a4cbcd4d1067b5e6a4

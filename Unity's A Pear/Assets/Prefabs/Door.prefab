@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5134690433504241588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -0.1, z: -0.29}
+  m_LocalPosition: {x: 0.3, y: -0.1, z: -0.031}
   m_LocalScale: {x: 0.25, y: 0.07551229, z: 1}
   m_Children: []
   m_Father: {fileID: 5134690433819531235}
@@ -297,7 +297,8 @@ MonoBehaviour:
   isLocked: 1
   doorUnlocked: {fileID: 5134690434615847535}
   keyScript: {fileID: 0}
-  buttonScript: {fileID: 0}
+  levelLoader: {fileID: 3971212384214566062, guid: d6c9b6f826c4dba4793b67f990d40564,
+    type: 3}
 --- !u!1 &5134690433863489777
 GameObject:
   m_ObjectHideFlags: 0

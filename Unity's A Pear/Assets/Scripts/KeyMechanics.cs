@@ -16,7 +16,7 @@ public class KeyMechanics : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Man")
+        if(collision.gameObject.tag == "Man" || collision.gameObject.tag == "Player")
         {
             hasKey = true;
             GetComponent<BoxCollider2D> ().enabled = false;
