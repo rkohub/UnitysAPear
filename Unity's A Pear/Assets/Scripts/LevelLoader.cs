@@ -11,6 +11,7 @@ public class LevelLoader: MonoBehaviour
     public void Switch()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        Debug.Log("scene switched");
     }
 
     IEnumerator LoadLevel(int levelIndex)

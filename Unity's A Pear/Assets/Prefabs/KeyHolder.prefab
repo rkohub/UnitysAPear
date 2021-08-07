@@ -171,6 +171,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key
       objectReference: {fileID: 0}
+    - target: {fileID: 1164572904631537006, guid: ce6761a8bdf484c4fb6abc88cf4a6f8b,
+        type: 3}
+      propertyPath: KeyLight
+      value: 
+      objectReference: {fileID: 7054660785830158472}
     - target: {fileID: 1164572904631537007, guid: ce6761a8bdf484c4fb6abc88cf4a6f8b,
         type: 3}
       propertyPath: m_RootOrder

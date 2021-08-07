@@ -5,32 +5,39 @@ using UnityEngine;
 public class DoorMechanics : MonoBehaviour
 {
     public bool isLocked;
+    public bool doesKeyExist;
     public Animator doorUnlocked;
     public KeyMechanics keyScript;
+    public LevelLoader levelLoader;
     // public ButtonMechanics buttonScript;
     // public GameObject key;
+    public HeadControl headControl;
 
     void Start()
     {
-        // keyScript = key.GetComponent<key>();
         if(isLocked)
         {
-            GetComponent<BoxCollider2D> ().enabled = true;
+            doesKeyExist = true;
         }else{
-            GetComponent<BoxCollider2D> ().enabled = false;
+            doesKeyExist = false;
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Man" || collision.gameObject.tag == "Player")
         {
-            if(keyScript.hasKey)
+            if(headControl.attached)
             {
-                GetComponent<BoxCollider2D> ().enabled = false;
-                isLocked = false;
-                doorUnlocked.SetTrigger("DoorUnlocked");
-                Debug.Log("unlocked");
+                if(!doesKeyExist || keyScript.hasKey)
+                {
+                    GetComponent<BoxCollider2D> ().enabled = false;
+                    isLocked = false;
+                    doorUnlocked.SetTrigger("DoorUnlocked");
+                    Debug.Log("unlocked");
+                    levelLoader.Switch();
+                }
             }
         }
     }
