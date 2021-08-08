@@ -54,7 +54,7 @@ public class HeadControl : MonoBehaviour{
                 if(Vector2.Distance(this.gameObject.transform.position,legs.transform.position) < distToAttach){
                     readyToAttachFromHead = true;
                 }else{
-                    Debug.Log("NotINRange");
+                    Debug.Log("NotINRangeH");
                 }
                 // Debug.Log("LINK");
             }
