@@ -178,7 +178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3633497748822352379}
   - component: {fileID: 3633497748822352378}
-  - component: {fileID: 4158738928428762747}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -222,22 +221,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4158738928428762747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633497748822352380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc00193acd5d2f4ca3ec30d538644a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staysPressed: 0
-  isPressed: 0
-  buttonPress: {fileID: 3633497748822352378}
-  buttonEffect: {fileID: 8730191792424149149}
 --- !u!1 &3633497749201325062
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +248,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3633497749201325062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.91, y: -1.79, z: 0.24}
-  m_LocalScale: {x: 0.9, y: 0.9560309, z: 1}
+  m_LocalPosition: {x: 0, y: 0.196, z: 0.135}
+  m_LocalScale: {x: 0.9, y: 0.8072725, z: 1}
   m_Children: []
   m_Father: {fileID: 3633497748822352379}
   m_RootOrder: 0
@@ -364,8 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staysPressed: 0
   isPressed: 0
-  buttonPress: {fileID: 0}
-  buttonEffect: {fileID: 0}
+  buttonPress: {fileID: 3633497748822352378}
+  buttonEffect: {fileID: 8730191792424149149}
 --- !u!1 &3633497750012770781
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3633497750012770781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.92, y: -1.91, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.44988, z: 1}
   m_Children: []
   m_Father: {fileID: 3633497748822352379}

@@ -48,7 +48,7 @@ public class MoveCharacter : MonoBehaviour{
             moveScalar = airScalar;
         }
         if(this.gameObject.name == "Legs" && legScript.attached){
-            print("ATT");
+            //print("ATT");
             jumpMagnitude         = legScript.attJumpMagnitude;
             accelerationMagnitude = legScript.attAccelerationMagnitude * moveScalar;
             maxVelocity           = legScript.attMaxVelocity;

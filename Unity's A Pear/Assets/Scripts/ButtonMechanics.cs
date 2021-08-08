@@ -8,7 +8,7 @@ public class ButtonMechanics : MonoBehaviour
     public bool isPressed;
     public Animator buttonPress;
     public Animator buttonEffect;
-    public Animator grateOpen;
+    //public Animator grateOpen;
 
     private bool ryanPressed;
 
@@ -16,27 +16,32 @@ public class ButtonMechanics : MonoBehaviour
     {
         isPressed = false;
         // ryanPressed = false;
-        // staysPressed = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-            isPressed = true;
-            grateOpen.SetTrigger("ButtonPressed");
-            //ryanPressed = true;
-            //Debug.Log("ButtonPressed");
-            //buttonPress.SetTrigger("ButtonPressed");
-            //buttonEffect.SetTrigger("ButtonEffect");
-            //grateOpen.SetTrigger("ButtonPressed");
-            //Debug.Log("animation played");
-            //Debug.Log(ryanPressed);
-            
-            // Wait();
+        Debug.Log("crash");   
+        ButtonDown();
+        //grateOpen.SetTrigger("ButtonPressed");
+        //ryanPressed = true;
+        //Debug.Log("ButtonPressed");
+        //Debug.Log(ryanPressed);
+        
+        // Wait();
 
         // if(!staysPressed)
         // {
         //     OnCollisionExit2D();
         // }
+    }
+
+    public void ButtonDown()
+    {
+        Debug.Log("method run");
+        isPressed = true;
+        buttonPress.SetTrigger("ButtonPressed");
+        buttonEffect.SetTrigger("ButtonEffect");
+        Debug.Log("animation played");
     }
 
     // void Update(){
