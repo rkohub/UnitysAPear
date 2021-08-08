@@ -22,6 +22,7 @@ public class ButtonMechanics : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
             isPressed = true;
+            grateOpen.SetTrigger("ButtonPressed");
             //ryanPressed = true;
             //Debug.Log("ButtonPressed");
             //buttonPress.SetTrigger("ButtonPressed");
