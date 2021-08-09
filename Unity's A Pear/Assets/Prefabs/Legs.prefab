@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &689746025
 Transform:
   m_ObjectHideFlags: 0
@@ -341,13 +341,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7719490212834915832}
   - component: {fileID: 7719490212834915839}
-  - component: {fileID: 7719490212834915833}
   - component: {fileID: 7719490212834915834}
   - component: {fileID: 7719490212834915835}
   - component: {fileID: 7719490212834915716}
   - component: {fileID: 2015164740}
   - component: {fileID: 19485543}
   - component: {fileID: 19485544}
+  - component: {fileID: 2025913269}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Man
@@ -423,22 +423,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7719490212834915833
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7719490212834915838}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &7719490212834915834
 Rigidbody2D:
   serializedVersion: 4
@@ -467,7 +451,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719490212834915838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ce2bc10174ba4147be7264108d8f744, type: 3}
   m_Name: 
@@ -502,14 +486,14 @@ MonoBehaviour:
   headScript: {fileID: 7719490211514592527}
   myMovement: {fileID: 7719490212834915835}
   myInteract: {fileID: 19485544}
-  legBox: {fileID: 7719490212834915833}
+  legBox: {fileID: 2025913269}
   attachedBox: {fileID: 2015164740}
   attached: 0
   controllingLegs: 0
   selfEnabled: 1
   readyToChange: 0
   readyToAttachFromLegs: 0
-  distToAttach: 0.1
+  distToAttach: 3
   attJumpMagnitude: 300
   attAccelerationMagnitude: 7
   attMaxVelocity: 2.75
@@ -585,3 +569,29 @@ MonoBehaviour:
   hitboxUpTime: 0.2
   elapsedUpTime: 0
   coolDownTime: 0.5
+--- !u!61 &2025913269
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719490212834915838}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5}
+  m_EdgeRadius: 0

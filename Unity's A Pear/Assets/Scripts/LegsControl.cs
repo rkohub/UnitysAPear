@@ -69,7 +69,7 @@ public class LegsControl : MonoBehaviour{
                 if(Vector2.Distance(this.gameObject.transform.position,head.transform.position) < distToAttach){
                     readyToAttachFromLegs = true;
                 }else{
-                    Debug.Log("NotINRange");
+                    Debug.Log("NotINRangeL");
                 }
             }
             if (Input.GetKeyDown("k")){
